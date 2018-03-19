@@ -1,0 +1,16 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: white;
+}
+
+.header-item {
+  margin: 15px;
+  text-decoration: none;
+  transition: all 1s ease;
+}
+
+.header-item:hover {
+  text-decoration: underline;
+}

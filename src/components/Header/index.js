@@ -28,6 +28,9 @@ const Header = () => (
         </Link>
       </h1>
       <div className="header">
+        <Link className="header-item" to="/">
+          <h5>Posts</h5>
+        </Link>
         <Link className="header-item" to="/authors">
           <h5>Authors</h5>
         </Link>

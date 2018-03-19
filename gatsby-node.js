@@ -1,7 +1,13 @@
-/**
- * Implement Gatsby's Node APIs in this file.
- *
- * See: https://www.gatsbyjs.org/docs/node-apis/
- */
+const {
+  createPosts,
+  createAuthors,
+  createCategories,
+} = require('./src/factory')
 
- // You can delete this file if you're not using it
+exports.createPages = params => {
+  return Promise.all([
+    createPosts(params),
+    createAuthors(params),
+    createCategories(params),
+  ])
+}

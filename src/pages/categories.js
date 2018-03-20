@@ -11,7 +11,9 @@ const CategoryPage = ({ data: { allContentfulCategory: { edges } } }) => {
           <h1>
             <Link to={createPostUrlFromCategory(node.title)}>{node.title}</Link>
           </h1>
-          <h4>{node.shortDescription.shortDescription}</h4>
+          <h4>
+            {node.shortDescription && node.shortDescription.shortDescription}
+          </h4>
           <hr />
         </div>
       ))}

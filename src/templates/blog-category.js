@@ -9,7 +9,7 @@ class BlogCategory extends Component {
     const {
       title,
       icon,
-      shortDescription: { shortDescription },
+      shortDescription,
       post,
     } = this.props.data.contentfulCategory
     return (
@@ -26,7 +26,7 @@ class BlogCategory extends Component {
           <Img sizes={icon.sizes} />
         </div>
         <hr />
-        <h3>{shortDescription}</h3>
+        <h3>{shortDescription && shortDescription.shortDescription}</h3>
         <PostOverview nodes={post} />
       </div>
     )

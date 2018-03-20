@@ -1,16 +1,17 @@
 import React, { PropTypes } from 'react'
 import Link, { navigateTo } from 'gatsby-link'
-import { createPostUrlFromSlug, createPostUrlFromAuthorName } from '../../utils'
+import {
+  createPostUrlFromSlug,
+  createPostUrlFromAuthorName,
+  createPostUrlFromCategory,
+} from '../../utils'
 import './index.css'
 
 const tagStyle = { marginRight: '8px' }
 
 const IndexPost = ({ node }) => {
   return (
-    <div
-      className="node"
-      onClick={() => navigateTo(createPostUrlFromSlug(node.slug))}
-    >
+    <Link className="node" to={createPostUrlFromSlug(node.slug)}>
       <div className="title">
         <h4>{node.title.title}</h4>
       </div>
@@ -31,7 +32,9 @@ const IndexPost = ({ node }) => {
         {node.category && (
           <div className="info">
             <span className="info-title">Category:</span>
-            <Link to={node.category[0].title}>{node.category[0].title}</Link>
+            <Link to={createPostUrlFromCategory(node.category[0].title)}>
+              {node.category[0].title}
+            </Link>
           </div>
         )}
       </div>
@@ -45,7 +48,7 @@ const IndexPost = ({ node }) => {
           ))}
         </div>
       )}
-    </div>
+    </Link>
   )
 }
 export default IndexPost

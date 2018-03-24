@@ -1,9 +1,9 @@
 const createPosts = require('./createPosts')
 const createArtists = require('./createArtists')
-const creategenres = require('./creategenres')
+const createGenress = require('./createGenress')
 
 module.exports = {
   createPosts,
-  creategenres,
+  createGenress,
   createArtists,
 }

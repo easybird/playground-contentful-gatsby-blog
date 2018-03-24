@@ -19,7 +19,6 @@ const PostOverview = ({ nodes }) => {
       }}
     >
       {posts}
-      {posts}
     </div>
   )
 }

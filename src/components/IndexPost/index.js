@@ -11,15 +11,17 @@ const tagStyle = { marginRight: '8px' }
 
 const IndexPost = ({ node }) => {
   return (
-    <Link className="node" to={createPostUrlFromSlug(node.slug)}>
-      <div className="title">
-        <h4>{node.title.title}</h4>
-      </div>
-      {node.featuredImage && (
-        <div className="image">
-          <img src={node.featuredImage.resolutions.src} />
+    <div className="node" to={createPostUrlFromSlug(node.slug)}>
+      <Link to={createPostUrlFromSlug(node.slug)}>
+        <div className="title">
+          <h4>{node.title.title}</h4>
         </div>
-      )}
+        {node.featuredImage && (
+          <div className="image">
+            <img src={node.featuredImage.resolutions.src} />
+          </div>
+        )}
+      </Link>
       <div className="info-block">
         {node.author && (
           <div className="info">
@@ -48,7 +50,7 @@ const IndexPost = ({ node }) => {
           ))}
         </div>
       )}
-    </Link>
+    </div>
   )
 }
 export default IndexPost

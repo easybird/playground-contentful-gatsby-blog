@@ -2,8 +2,8 @@ import React, { PropTypes } from 'react'
 import Link, { navigateTo } from 'gatsby-link'
 import {
   createPostUrlFromSlug,
-  createPostUrlFromAuthorName,
-  createPostUrlFromCategory,
+  createPostUrlFromArtistName,
+  createPostUrlFromGenre,
 } from '../../utils'
 import './index.css'
 
@@ -25,16 +25,16 @@ const IndexPost = ({ node }) => {
       <div className="info-block">
         {node.author && (
           <div className="info">
-            <span className="info-title">Author:</span>
-            <Link to={createPostUrlFromAuthorName(node.author[0].name)}>
+            <span className="info-title">Artist:</span>
+            <Link to={createPostUrlFromArtistName(node.author[0].name)}>
               {node.author[0].name}
             </Link>
           </div>
         )}
         {node.category && (
           <div className="info">
-            <span className="info-title">Category:</span>
-            <Link to={createPostUrlFromCategory(node.category[0].title)}>
+            <span className="info-title">Genre:</span>
+            <Link to={createPostUrlFromGenre(node.category[0].title)}>
               {node.category[0].title}
             </Link>
           </div>

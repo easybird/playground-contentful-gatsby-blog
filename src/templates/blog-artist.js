@@ -3,15 +3,16 @@ import PropTypes from 'prop-types'
 import Img from 'gatsby-image'
 import PostOverview from '../components/PostOverview'
 
-class BlogCategory extends Component {
+class BlogArtist extends Component {
   render() {
     console.log(this.props)
     const {
-      title,
-      icon,
-      shortDescription,
+      name,
+      profilePhoto,
+      biography,
+      website,
       post,
-    } = this.props.data.contentfulCategory
+    } = this.props.data.contentfulArtist
     return (
       <div>
         <h1
@@ -20,38 +21,46 @@ class BlogCategory extends Component {
             paddingBottom: '0.5rem',
           }}
         >
-          {title}
+          {name}
         </h1>
+        <p>{website}</p>
         <div>
-          <Img sizes={icon.sizes} />
+          <Img sizes={profilePhoto.sizes} />
         </div>
         <hr />
-        <h3>{shortDescription && shortDescription.shortDescription}</h3>
+        <div
+          dangerouslySetInnerHTML={{
+            __html: biography.childMarkdownRemark.html,
+          }}
+        />
         <PostOverview nodes={post} />
       </div>
     )
   }
 }
 
-BlogCategory.PropTypes = {
+BlogArtist.PropTypes = {
   data: PropTypes.object.isRequired,
 }
 
-export default BlogCategory
+export default BlogArtist
 
 export const pageQuery = graphql`
-  query blogCategoryQuery($title: String!) {
-    contentfulCategory(title: { eq: $title }) {
+  query blogArtistQuery($name: String!) {
+    contentfulArtist(name: { eq: $name }) {
       id
-      title
-      icon {
+      name
+      profilePhoto {
         sizes(maxWidth: 800) {
           ...GatsbyContentfulSizes
         }
       }
-      shortDescription {
-        shortDescription
+      biography {
+        childMarkdownRemark {
+          html
+        }
       }
+      website
       post {
         ...IndexPostFragment
       }

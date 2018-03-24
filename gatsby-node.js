@@ -1,13 +1,9 @@
-const {
-  createPosts,
-  createAuthors,
-  createCategories,
-} = require('./src/factory')
+const { createPosts, createArtists, creategenres } = require('./src/factory')
 
 exports.createPages = params => {
   return Promise.all([
     createPosts(params),
-    createAuthors(params),
-    createCategories(params),
+    createArtists(params),
+    creategenres(params),
   ])
 }

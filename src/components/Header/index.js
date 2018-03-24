@@ -31,11 +31,11 @@ const Header = () => (
         <Link className="header-item" to="/">
           <h5>Posts</h5>
         </Link>
-        <Link className="header-item" to="/authors">
-          <h5>Authors</h5>
+        <Link className="header-item" to="/artists">
+          <h5>Artists</h5>
         </Link>
-        <Link className="header-item" to="/categories">
-          <h5>Categories</h5>
+        <Link className="header-item" to="/genres">
+          <h5>Genres</h5>
         </Link>
         <Link className="header-item" to="/tags">
           <h5>Tags</h5>

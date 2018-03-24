@@ -3,6 +3,6 @@ function urlify(url) {
 }
 module.exports = {
   createPostUrlFromSlug: slug => '/posts/' + urlify(slug),
-  createPostUrlFromAuthorName: authorName => '/authors/' + urlify(authorName),
-  createPostUrlFromCategory: category => '/categories/' + urlify(category),
+  createPostUrlFromArtistName: artistName => '/artists/' + urlify(artistName),
+  createPostUrlFromGenre: genre => '/genres/' + urlify(genre),
 }

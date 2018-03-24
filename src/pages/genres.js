@@ -1,15 +1,15 @@
 import React from 'react'
 import Link, { navigateTo } from 'gatsby-link'
-import { createPostUrlFromCategory } from '../utils'
+import { createPostUrlFromGenre } from '../utils'
 
-const CategoryPage = ({ data: { allContentfulCategory: { edges } } }) => {
-  console.log('category', edges)
+const GenrePage = ({ data: { allContentfulGenre: { edges } } }) => {
+  console.log('genre', edges)
   return (
     <div>
       {edges.map(({ node }) => (
         <div key={node.id}>
           <h1>
-            <Link to={createPostUrlFromCategory(node.title)}>{node.title}</Link>
+            <Link to={createPostUrlFromGenre(node.title)}>{node.title}</Link>
           </h1>
           <h4>
             {node.shortDescription && node.shortDescription.shortDescription}
@@ -21,11 +21,11 @@ const CategoryPage = ({ data: { allContentfulCategory: { edges } } }) => {
   )
 }
 
-export default CategoryPage
+export default GenrePage
 
 export const query = graphql`
-  query CategoryContent {
-    allContentfulCategory {
+  query GenreContent {
+    allContentfulGenre {
       edges {
         node {
           id

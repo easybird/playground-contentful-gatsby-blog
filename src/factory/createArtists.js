@@ -1,15 +1,15 @@
 const path = require('path')
-const createPostUrlFromAuthorName = require('../utils')
-  .createPostUrlFromAuthorName
+const createPostUrlFromArtistName = require('../utils')
+  .createPostUrlFromArtistName
 
 module.exports = ({ graphql, boundActionCreators: { createPage } }) =>
   new Promise((resolve, reject) => {
-    console.log('start creating Author')
-    const blogAuthorTemplate = path.resolve('src/templates/blog-author.js')
+    console.log('start creating Artist')
+    const blogArtistTemplate = path.resolve('src/templates/blog-artist.js')
     resolve(
       graphql(`
         {
-          allContentfulAuthor {
+          allContentfulArtist {
             edges {
               node {
                 id
@@ -22,10 +22,10 @@ module.exports = ({ graphql, boundActionCreators: { createPage } }) =>
         if (result.errors) {
           reject(result.errors)
         }
-        result.data.allContentfulAuthor.edges.forEach(edge => {
+        result.data.allContentfulArtist.edges.forEach(edge => {
           createPage({
-            path: createPostUrlFromAuthorName(edge.node.name),
-            component: blogAuthorTemplate,
+            path: createPostUrlFromArtistName(edge.node.name),
+            component: blogArtistTemplate,
             context: {
               name: edge.node.name,
             },

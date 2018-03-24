@@ -1,6 +1,6 @@
 import React from 'react'
 import Link, { navigateTo } from 'gatsby-link'
-import { createPostUrlFromSlug, createPostUrlFromAuthorName } from '../utils'
+import { createPostUrlFromSlug, createPostUrlFromArtistName } from '../utils'
 import PostOverview from '../components/PostOverview'
 
 const IndexPage = ({ data: { allContentfulPost: { edges } } }) => {
